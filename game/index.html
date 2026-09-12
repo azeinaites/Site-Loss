@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>L.O.S.S - The Human Factor Tour</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" id="back-to-site" aria-label="Voltar para o site da Loss">← Loss</a>
+    <div id="viewport-wrap">
+        <div id="game-container">
+            <div id="crt-overlay"></div>
+
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+            <!-- Widget de música: nome da faixa + mute (sempre visível, independente da tela) -->
+            <div id="music-widget" class="ui-layer-passthrough">
+                <button id="mute-btn" aria-label="Mutar música">🔊</button>
+                <span id="track-name">Human Factor Intro</span>
+            </div>
+
+            <!-- Tela Inicial com Background -->
+            <div id="start-screen" class="ui-layer">
+                <h1>L.O.S.S</h1>
+                <h2>HUMAN FACTOR TOUR</h2>
+                <p id="start-prompt">Pressione [ESPAÇO] ou toque para Iniciar</p>
+
+                <div id="instructions">
+                    <div class="instructions-title">COMANDOS</div>
+                    <div class="instructions-grid">
+                        <div><span class="key">◄ ►</span> / <span class="key">A D</span> Mover</div>
+                        <div><span class="key">▲</span> / <span class="key">W</span> Pular</div>
+                        <div><span class="key">J</span> / <span class="key">F</span> Atirar</div>
+                        <div><span class="key">ESPAÇO</span> Ataque Sônico</div>
+                        <div class="instructions-alt">🎮 Joystick/Controle compatível</div>
+                        <div class="instructions-alt">📱 Toque na tela em celulares</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nova Tela de História -->
+            <div id="story-screen" class="ui-layer" style="display: none;">
+                <h3>FASE 1: MR. ROCK (BH)</h3>
+                <p>
+                    O ano é 2026. A Inteligência Artificial padronizou a música.
+                    <br><br>
+                    <span class="highlight-robus">ROBUSTUS</span>, o ciborgue filósofo, desperta em Belo Horizonte para recuperar a essência analógica.
+                    <br><br>
+                    Cuidado... <span class="highlight-boss">O METRÔNOMO EXECUTOR</span> assumiu o controle do palco principal!
+                </p>
+                <p class="blink">Pressione [ESPAÇO] ou toque para Entrar no Bar</p>
+            </div>
+
+            <div id="hud" class="ui-layer" style="display: none;">
+                <div id="hud-score">SCORE: 0000 | TIROS: 5/5</div>
+                <div id="hud-lives">FASE: 1</div>
+            </div>
+
+            <!-- Controles virtuais para toque (mobile) -->
+            <div id="touch-controls" style="display: none;">
+                <div id="touch-dpad">
+                    <button id="btn-left" class="touch-btn dpad-btn" aria-label="Esquerda">◄</button>
+                    <button id="btn-right" class="touch-btn dpad-btn" aria-label="Direita">►</button>
+                    <button id="btn-jump" class="touch-btn dpad-btn" aria-label="Pular">▲</button>
+                </div>
+                <div id="touch-actions">
+                    <button id="btn-shoot" class="touch-btn action-btn" aria-label="Atirar">TIRO</button>
+                    <button id="btn-sonic" class="touch-btn action-btn action-btn-big" aria-label="Ataque Sônico">SÔNICO</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Aviso para girar o aparelho (fora do container escalado, cobre a viewport real) -->
+        <div id="rotate-overlay">
+            <div class="rotate-icon">⟳</div>
+            <p>Gire seu aparelho para jogar em modo paisagem</p>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

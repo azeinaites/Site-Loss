@@ -1,0 +1,234 @@
+* { box-sizing: border-box; }
+
+html, body {
+    background-color: #050505;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#viewport-wrap {
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    flex-shrink: 0;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    /* transform:scale(...) is applied inline by game.js to fit the viewport */
+    transform-origin: center center;
+}
+
+canvas {
+    background-color: #111;
+    image-rendering: pixelated;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#crt-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 6px 100%;
+    z-index: 10; pointer-events: none;
+}
+
+.ui-layer {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 5; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+}
+
+/* Background da Imagem 1 */
+#start-screen {
+    background-image: url('assets/snes-hfactor.png');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+/* Escurece a imagem para o texto ficar legível */
+#start-screen::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); z-index: -1;
+}
+
+#start-screen h1 { font-size: 60px; text-shadow: 4px 4px #000; margin-bottom: 10px; }
+#start-screen h2 { font-size: 20px; color: #2ecc71; margin-bottom: 20px; }
+#start-prompt { margin-bottom: 18px; }
+
+#instructions {
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid #2ecc71;
+    padding: 14px 18px;
+    max-width: 520px;
+}
+.instructions-title { color: #f1c40f; font-size: 13px; margin-bottom: 12px; }
+.instructions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    font-size: 9px;
+    text-align: left;
+    line-height: 1.6;
+}
+.instructions-alt { color: #3498db; grid-column: 1 / -1; }
+.key {
+    display: inline-block;
+    background: #222;
+    border: 1px solid #888;
+    border-radius: 3px;
+    padding: 2px 5px;
+    margin-right: 3px;
+    color: #fff;
+}
+
+#story-screen {
+    background-image: url('assets/snes-hfactor.png');
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(26, 15, 15, 0.9);
+    background-blend-mode: soft-light;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* Destaque dos Nomes */
+.highlight-robus { color: #3498db; text-shadow: 2px 2px #000; font-size: 16px;}
+.highlight-boss { color: #e74c3c; text-shadow: 2px 2px #000; font-size: 16px;}
+
+#hud {
+    flex-direction: row; justify-content: space-between; align-items: flex-start;
+    padding: 20px; box-sizing: border-box; height: auto; text-shadow: 2px 2px #000;
+    font-size: 14px;
+}
+
+/* --- WIDGET DE MÚSICA --- */
+#music-widget {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 8px;
+    max-width: 260px;
+}
+#mute-btn {
+    background: none; border: none; color: #fff; font-size: 14px;
+    cursor: pointer; pointer-events: auto; line-height: 1; padding: 0;
+}
+#track-name {
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    color: #ddd; letter-spacing: 0.5px;
+}
+
+/* --- CONTROLES TOUCH --- */
+#touch-controls {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 42%;
+    z-index: 25; pointer-events: none;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding: 0 16px 16px;
+}
+#touch-dpad, #touch-actions {
+    display: grid;
+    pointer-events: none;
+}
+#touch-dpad {
+    grid-template-columns: repeat(3, 56px);
+    grid-template-rows: repeat(2, 56px);
+    gap: 6px;
+}
+#btn-left  { grid-column: 1; grid-row: 2; }
+#btn-right { grid-column: 3; grid-row: 2; }
+#btn-jump  { grid-column: 2; grid-row: 1; }
+
+#touch-actions {
+    grid-template-columns: repeat(2, auto);
+    align-items: end;
+    gap: 10px;
+}
+
+.touch-btn {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 50%;
+    width: 56px; height: 56px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.touch-btn:active, .touch-btn.pressed {
+    background: rgba(46, 204, 113, 0.45);
+    border-color: #2ecc71;
+}
+.action-btn { font-size: 8px; width: 66px; height: 66px; background: rgba(52, 152, 219, 0.18); }
+.action-btn-big { width: 80px; height: 80px; font-size: 9px; background: rgba(231, 76, 60, 0.2); border-color: rgba(231,76,60,0.6); }
+
+/* --- AVISO DE ROTAÇÃO --- */
+#rotate-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 999;
+    background: #000;
+    color: #fff;
+    flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 30px;
+    font-size: 12px; line-height: 1.8;
+}
+.rotate-icon { font-size: 48px; margin-bottom: 20px; animation: spin 1.6s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+@media (orientation: portrait) and (max-width: 950px), (orientation: portrait) and (max-height: 500px) {
+    #rotate-overlay { display: flex; }
+}
+@media (orientation: portrait) {
+    body.touch-device #rotate-overlay { display: flex; }
+}
+
+@media (max-width: 700px) {
+    .instructions-grid { grid-template-columns: 1fr; font-size: 8px; }
+    #start-screen h1 { font-size: 42px; }
+}
+
+/* Link de volta para o site principal da banda */
+#back-to-site {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 6px 10px;
+    border-radius: 3px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+#back-to-site:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+}
