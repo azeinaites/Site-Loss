@@ -453,7 +453,12 @@ h1, h2, h3 {
   color: var(--brass);
   margin-top: 12px;
 }
-
+.video-container {
+    display: flex;
+    justify-content: center; /* Centraliza na horizontal */
+    align-items: center;     /* Centraliza na vertical (opcional) */
+    width: 100%;             /* Ocupa a largura total da página/container pai */
+}
 /* ---------- loja ---------- */
 
 .loja-grid {
