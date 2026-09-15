@@ -453,7 +453,23 @@ h1, h2, h3 {
   color: var(--brass);
   margin-top: 12px;
 }
-
+.video-container {
+  max-width: var(--wrap);
+  margin: 48px auto 0;
+  padding: 0 28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.video-container iframe {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid rgba(200, 162, 74, 0.3);
+}
 /* ---------- jogo ---------- */
 
 .jogo-grid {
