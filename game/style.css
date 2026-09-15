@@ -55,21 +55,32 @@ canvas {
 
 /* Background da Imagem 1 */
 #start-screen {
-    background-image: url('assets/snes-hfactor.png');
+    background-image: url('assets/snes hfactor.png');
     background-size: cover;
     background-position: center;
     padding: 20px;
 }
 
-/* Escurece a imagem para o texto ficar legível */
+/* Vinheta leve (só nas bordas) para dar moldura sem apagar a arte da capa */
 #start-screen::before {
     content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6); z-index: -1;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.62) 100%);
+    z-index: -1;
 }
 
-#start-screen h1 { font-size: 60px; text-shadow: 4px 4px #000; margin-bottom: 10px; }
-#start-screen h2 { font-size: 20px; color: #2ecc71; margin-bottom: 20px; }
-#start-prompt { margin-bottom: 18px; }
+#start-screen h1 {
+    font-size: 60px; margin-bottom: 10px;
+    color: #ffd23f;
+    text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000, 0 0 22px rgba(255, 140, 0, 0.85);
+}
+#start-screen h2 {
+    font-size: 20px; color: #2ecc71; margin-bottom: 20px;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+#start-prompt {
+    margin-bottom: 18px;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
 
 #instructions {
     background: rgba(0, 0, 0, 0.55);
@@ -98,7 +109,7 @@ canvas {
 }
 
 #story-screen {
-    background-image: url('assets/snes-hfactor.png');
+    background-image: url('assets/snes hfactor.png');
     background-size: cover;
     background-position: center;
     background-color: rgba(26, 15, 15, 0.9);
@@ -211,24 +222,4 @@ canvas {
 @media (max-width: 700px) {
     .instructions-grid { grid-template-columns: 1fr; font-size: 8px; }
     #start-screen h1 { font-size: 42px; }
-}
-
-/* Link de volta para o site principal da banda */
-#back-to-site {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 999;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.55);
-    text-decoration: none;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 6px 10px;
-    border-radius: 3px;
-    transition: color 0.2s ease, background 0.2s ease;
-}
-#back-to-site:hover {
-    color: #fff;
-    background: rgba(0, 0, 0, 0.7);
 }
