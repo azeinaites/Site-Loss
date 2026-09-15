@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="../index.html" id="back-to-site" aria-label="Voltar para o site da Loss">← Loss</a>
     <div id="viewport-wrap">
         <div id="game-container">
             <div id="crt-overlay"></div>
@@ -40,17 +39,17 @@
                 </div>
             </div>
 
-            <!-- Nova Tela de História -->
+            <!-- Tela de História (conteúdo preenchido dinamicamente por fase via JS) -->
             <div id="story-screen" class="ui-layer" style="display: none;">
-                <h3>FASE 1: MR. ROCK (BH)</h3>
-                <p>
+                <h3 id="story-title">FASE 1: MR. ROCK (BH)</h3>
+                <p id="story-text">
                     O ano é 2026. A Inteligência Artificial padronizou a música.
                     <br><br>
                     <span class="highlight-robus">ROBUSTUS</span>, o ciborgue filósofo, desperta em Belo Horizonte para recuperar a essência analógica.
                     <br><br>
                     Cuidado... <span class="highlight-boss">O METRÔNOMO EXECUTOR</span> assumiu o controle do palco principal!
                 </p>
-                <p class="blink">Pressione [ESPAÇO] ou toque para Entrar no Bar</p>
+                <p class="blink" id="story-prompt">Pressione [ESPAÇO] ou toque para Entrar no Bar</p>
             </div>
 
             <div id="hud" class="ui-layer" style="display: none;">
