@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loss — Stoner Rock de Belo Horizonte</title>
-<meta name="description" content="Loss é um power trio de stoner rock de Belo Horizonte (MG), no cast da produtora Som do Darma. Conheça a banda, a discografia e a imprensa.">
+<title data-i18n="title">Loss — Stoner Rock de Belo Horizonte</title>
+<meta name="description" content="Loss é um power trio de stoner rock de Belo Horizonte (MG), no cast da produtora Som do Darma. Conheça a banda, a discografia e a imprensa." data-i18n-content="meta_description">
 <link rel="icon" href="images/logo-loss.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,19 +20,25 @@
     <a href="#top" class="brand">
       <img src="images/logo-loss.png" alt="Loss" class="brand-mark">
     </a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu">
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu" data-i18n-aria-label="nav_toggle_aria">
       <span></span><span></span><span></span>
     </button>
     <nav class="primary-nav" id="primaryNav">
-      <a href="#sobre">A banda</a>
-      <a href="#discografia">Discografia</a>
-      <a href="#midia">Na mídia</a>
-      <a href="#fotos">Estrada</a>
-      <a href="#jogo">Jogo</a>
-      <a href="#loja">Loja</a>
-      <a href="#contato">Contato</a>
+      <a href="#sobre" data-i18n="nav_sobre">A banda</a>
+      <a href="#discografia" data-i18n="nav_discografia">Discografia</a>
+      <a href="#midia" data-i18n="nav_midia">Na mídia</a>
+      <a href="#fotos" data-i18n="nav_fotos">Estrada</a>
+      <a href="#jogo" data-i18n="nav_jogo">Jogo</a>
+      <a href="#loja" data-i18n="nav_loja">Loja</a>
+      <a href="#contato" data-i18n="nav_contato">Contato</a>
     </nav>
-    <a href="https://linktr.ee/Lossband" target="_blank" rel="noopener" class="nav-linktree">Linktree</a>
+    <div class="header-cta">
+      <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-btn is-active" data-lang="pt" aria-pressed="true">POR</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="https://linktr.ee/Lossband" target="_blank" rel="noopener" class="nav-linktree" data-i18n="nav_links">Links</a>
+    </div>
   </div>
 </header>
 
@@ -41,21 +47,19 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="images/capa-live-london.jpg" alt="Capa do álbum ao vivo Loss — Live in London, A Night at Cart &amp; Horses" loading="eager">
+      <img src="images/capa-live-london.jpg" alt="Capa do álbum ao vivo Loss — Live in London, A Night at Cart &amp; Horses" loading="eager" data-i18n-alt="hero_bg_alt">
       <div class="hero-scrim"></div>
     </div>
     <div class="wrap hero-inner">
-      <p class="hero-kicker">Belo Horizonte, Brasil </p>
-      <h1 class="hero-title">Riff pesado, raiz mineira, sonoridade moderna.</h1>
-      <p class="hero-lede">Loss é um power trio que carrega a força e o peso do rock clássico, mas sem abrir mão de referências modernas e influências diversas.
-O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Adriano e à bateria consistente de Teddy, dão origem a um som único que nos leva de volta às origens do estilo, mas traz um sopro de modernidade ao rock.
-</p>
+      <p class="hero-kicker" data-i18n="hero_kicker">Belo Horizonte, Brasil</p>
+      <h1 class="hero-title" data-i18n="hero_title">Riff pesado, raiz mineira, sonoridade moderna.</h1>
+      <p class="hero-lede" data-i18n="hero_lede">Loss é um power trio que carrega a força e o peso do rock clássico, mas sem abrir mão de referências modernas e influências diversas.<br><br>O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Adriano e à bateria consistente de Teddy, dão origem a um som único que nos leva de volta às origens do estilo, mas traz um sopro de modernidade ao rock.</p>
       <div class="hero-actions">
-        <a href="#discografia" class="btn btn-primary">Ouvir a discografia</a>
-        <a href="#midia" class="btn btn-ghost">Ler a imprensa</a>
+        <a href="#discografia" class="btn btn-primary" data-i18n="hero_btn_primary">Ouvir a discografia</a>
+        <a href="#midia" class="btn btn-ghost" data-i18n="hero_btn_ghost">Ler a imprensa</a>
       </div>
     </div>
-    <a href="#sobre" class="scroll-cue" aria-label="Rolar para a próxima seção">
+    <a href="#sobre" class="scroll-cue" aria-label="Rolar para a próxima seção" data-i18n-aria-label="scrollcue_aria">
       <span></span>
     </a>
   </section>
@@ -64,28 +68,28 @@ O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Ad
   <section class="section sobre" id="sobre">
     <div class="wrap sobre-grid">
       <div class="sobre-heading">
-        <span class="eyebrow">A banda</span>
-        <h2>Três músicos, um som que não pede desculpas.</h2>
+        <span class="eyebrow" data-i18n="sobre_eyebrow">A banda</span>
+        <h2 data-i18n="sobre_h2">Três músicos, um som que não pede desculpas.</h2>
       </div>
       <div class="sobre-copy">
-        <p> Fundada em 2020 em Belo Horizonte (MG), a Loss reúne o vocalista e baixista Marcelo Loss, fundador da banda Concreto, com a qual gravou 7 álbuns; o baterista Teddy Bronsk, fundador da lendária banda Witchhammer, uma das pioneiras do metal nacional na década de 80; e Adriano Avelar, com passagem pela Caxakustica e participações ao lado de artistas variados do cenário nacional.</p>
-        <p>A referência do trio está na raiz do hard rock e do metal mundial. Black Sabbath, Deep Purple, Led Zeppelin, Rush e Van Halen aparecem nas camadas de guitarra, no groove do baixo, no peso da bateria e nas melodias da banda, muitas vezes misturados a temperos da música brasileira. O som pouco convencional da Loss chamou a atenção dos gringos e já a levou a duas turnês europeias, passando por capitais como Londres, Paris, Amsterdã, Madri, Lisboa, além de cidades da Alemanha, Bélgica, Irlanda e Portugal. A mais recente tour, a Human Factor European Tour, de 2025, rendeu o ao vivo Live in London (A Night At Cart & Horses). O álbum foi gravado no lendário pub londrino, famoso por ter sido palco das primeiras apresentações do Iron Maiden.</p>
+        <p data-i18n="sobre_p1"> Fundada em 2020 em Belo Horizonte (MG), a Loss reúne o vocalista e baixista Marcelo Loss, fundador da banda Concreto, com a qual gravou 7 álbuns; o baterista Teddy Bronsk, fundador da lendária banda Witchhammer, uma das pioneiras do metal nacional na década de 80; e Adriano Avelar, com passagem pela Caxakustica e participações ao lado de artistas variados do cenário nacional.</p>
+        <p data-i18n="sobre_p2">A referência do trio está na raiz do hard rock e do metal mundial. Black Sabbath, Deep Purple, Led Zeppelin, Rush e Van Halen aparecem nas camadas de guitarra, no groove do baixo, no peso da bateria e nas melodias da banda, muitas vezes misturados a temperos da música brasileira. O som pouco convencional da Loss chamou a atenção dos gringos e já a levou a duas turnês europeias, passando por capitais como Londres, Paris, Amsterdã, Madri, Lisboa, além de cidades da Alemanha, Bélgica, Irlanda e Portugal. A mais recente tour, a Human Factor European Tour, de 2025, rendeu o ao vivo Live in London (A Night At Cart & Horses). O álbum foi gravado no lendário pub londrino, famoso por ter sido palco das primeiras apresentações do Iron Maiden.</p>
         </div>
       <dl class="sobre-facts">
         <div>
-          <dt>Formação</dt>
+          <dt data-i18n="sobre_fact1_dt">Formação</dt>
           <dd>2020, Belo Horizonte — MG</dd>
         </div>
         <div>
-          <dt>Integrantes</dt>
-          <dd>Marcelo Loss — voz e baixo<br>Adriano Avelar — guitarra e vocais<br>Teddy Bronsk — bateria</dd>
+          <dt data-i18n="sobre_fact2_dt">Integrantes</dt>
+          <dd data-i18n="sobre_fact2_dd">Marcelo Loss — voz e baixo<br>Adriano Avelar — guitarra e vocais<br>Teddy Bronsk — bateria</dd>
         </div>
         <div>
-          <dt>Selo</dt>
+          <dt data-i18n="sobre_fact3_dt">Selo</dt>
           <dd>Som do Darma</dd>
         </div>
         <div>
-          <dt>Influências</dt>
+          <dt data-i18n="sobre_fact4_dt">Influências</dt>
           <dd>Black Sabbath, Deep Purple, Led Zeppelin, Rush, Van Halen</dd>
         </div>
       </dl>
@@ -95,115 +99,115 @@ O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Ad
   <!-- DISCOGRAFIA -->
   <section class="section discografia" id="discografia">
     <div class="wrap">
-      <span class="eyebrow">Discografia</span>
-      <h2>Quatro capítulos, do estúdio em BH a um disco ao vivo em Londres.</h2>
+      <span class="eyebrow" data-i18n="discografia_eyebrow">Discografia</span>
+      <h2 data-i18n="discografia_h2">Quatro capítulos, do estúdio em BH a um disco ao vivo em Londres.</h2>
 
       <ol class="timeline">
         <li class="timeline-item">
           <div class="timeline-year">2020</div>
           <div class="timeline-body">
             <h3>Let's Go <span>EP</span></h3>
-            <p>EP de estreia de com quatro faixas autorais, gravada no Estúdio Riff (BH) e com mixagem e masterização do produtor dinamarquês Tue Madsen, que já trabalhou com nomes como Rob Halford e Meshuggah.</p>
+            <p data-i18n="disco1_p">EP de estreia de com quatro faixas autorais, gravada no Estúdio Riff (BH) e com mixagem e masterização do produtor dinamarquês Tue Madsen, que já trabalhou com nomes como Rob Halford e Meshuggah.</p>
           </div>
         </li>
         <li class="timeline-item">
           <div class="timeline-year">2022</div>
           <div class="timeline-body">
-            <h3>Storm <span>Álbum</span></h3>
-            <p>Primeiro álbum de estúdio e primeiro lançamento pela DyMM Records (Lisboa / Londres). Onze faixas em português e inglês, gravadas no Analog Dream Studio (BH) e mixadas em Atenas, na Grécia, por Jim Siou.</p>
+            <h3>Storm <span data-i18n="disco2_span">Álbum</span></h3>
+            <p data-i18n="disco2_p">Primeiro álbum de estúdio e primeiro lançamento pela DyMM Records (Lisboa / Londres). Onze faixas em português e inglês, gravadas no Analog Dream Studio (BH) e mixadas em Atenas, na Grécia, por Jim Siou.</p>
           </div>
         </li>
         <li class="timeline-item">
           <div class="timeline-year">2024</div>
           <div class="timeline-body">
-            <h3>Human Factor <span>Álbum</span></h3>
-            <p>Segundo álbum, com temática conceitual sobre o atrito entre o ser humano e a máquina. Gravado no Analog Dream Studio e mixado por Tue Madsen na Dinamarca.</p>
+            <h3>Human Factor <span data-i18n="disco3_span">Álbum</span></h3>
+            <p data-i18n="disco3_p">Segundo álbum, com temática conceitual sobre o atrito entre o ser humano e a máquina. Gravado no Analog Dream Studio e mixado por Tue Madsen na Dinamarca.</p>
           </div>
         </li>
         <li class="timeline-item">
           <div class="timeline-year">2026</div>
           <div class="timeline-body">
-            <h3>Live in London <span>A Night at Cart &amp; Horses — Ao vivo</span></h3>
-            <p>Registro ao vivo gravado no Cart &amp; Horses, o pub de Londres onde o Iron Maiden se apresentou no início da carreira. A Loss se torna uma das poucas bandas brasileiras a levar seu som pesado para esse endereço.</p>
+            <h3>Live in London <span data-i18n="disco4_span">A Night at Cart &amp; Horses — Ao vivo</span></h3>
+            <p data-i18n="disco4_p">Registro ao vivo gravado no Cart &amp; Horses, o pub de Londres onde o Iron Maiden se apresentou no início da carreira. A Loss se torna uma das poucas bandas brasileiras a levar seu som pesado para esse endereço.</p>
           </div>
         </li>
       </ol>
-      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/4vLe9mv8ulQuD9dA9IFySS?utm_source=generator&theme=0&si=bd161ec3169b4ae5" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/4vLe9mv8ulQuD9dA9IFySS?utm_source=generator&si=fca35d1669e7429e" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </section>
 
   <!-- NA MÍDIA -->
   <section class="section midia" id="midia">
     <div class="wrap">
-      <span class="eyebrow">Imprensa</span>
-      <h2>O que estão dizendo sobre a Loss.</h2>
+      <span class="eyebrow" data-i18n="midia_eyebrow">Imprensa</span>
+      <h2 data-i18n="midia_h2">O que estão dizendo sobre a Loss.</h2>
 
       <div class="midia-columns">
         <div class="midia-col">
-          <h3>Mídia nacional</h3>
+          <h3 data-i18n="midia_nacional_h3">Mídia nacional</h3>
           <ul class="link-list">
                         <li>
               <a href="https://roadiecrew.com/loss-lanca-album-storm-primeiro-pelo-selo-europeu-dymm-records/" target="_blank" rel="noopener">
-                <span class="link-title">Loss lança álbum "Storm", primeiro pelo selo europeu DyMM Records</span>
+                <span class="link-title" data-i18n="link_nat_1">Loss lança álbum "Storm", primeiro pelo selo europeu DyMM Records</span>
                 <span class="link-source">roadiecrew.com</span>
               </a>
             </li>
             <li>
               <a href="https://whiplash.net/materias/cds/367064-loss.html" target="_blank" rel="noopener">
-                <span class="link-title">Sonoridade calcada no stoner, com referências a outros subgêneros do peso</span>
+                <span class="link-title" data-i18n="link_nat_2">Sonoridade calcada no stoner, com referências a outros subgêneros do peso</span>
                 <span class="link-source">whiplash.net</span>
               </a>
             </li>
             <li>
               <a href="https://www.youtube.com/watch?v=PR-uIpWb7AE" target="_blank" rel="noopener">
-                <span class="link-title">Loss no YouTube</span>
+                <span class="link-title" data-i18n="link_nat_3">Loss no YouTube</span>
                 <span class="link-source">youtube.com</span>
               </a>
             </li>
             <li>
               <a href="https://headbangersbr.com/loss-o-fator-humano-por-tras-do-peso-maturidade-estrada-e-resistencia/" target="_blank" rel="noopener">
-                <span class="link-title">O fator humano por trás do peso: maturidade, estrada e resistência</span>
+                <span class="link-title" data-i18n="link_nat_4">O fator humano por trás do peso: maturidade, estrada e resistência</span>
                 <span class="link-source">headbangersbr.com</span>
               </a>
             </li>
             <li>
               <a href="https://www.asbrazil.com/news/view/2743-ja-disponivel-live-in-london-a-night-at-cart-horses-album-ao-vivo-do-loss-gravado-em-londres" target="_blank" rel="noopener">
-                <span class="link-title">Já disponível "Live In London — A Night At Cart &amp; Horses", álbum ao vivo da Loss gravado em Londres</span>
+                <span class="link-title" data-i18n="link_nat_5">Já disponível "Live In London — A Night At Cart &amp; Horses", álbum ao vivo da Loss gravado em Londres</span>
                 <span class="link-source">asbrazil.com</span>
               </a>
             </li>
             <li>
               <a href="https://www.valhalla.com.br/website/loss-inicia-nesta-semana-sua-segunda-turne-europeia/" target="_blank" rel="noopener">
-                <span class="link-title">Loss inicia nesta semana sua segunda turnê europeia</span>
+                <span class="link-title" data-i18n="link_nat_6">Loss inicia nesta semana sua segunda turnê europeia</span>
                 <span class="link-source">valhalla.com.br</span>
               </a>
             </li>
             <li>
               <a href="https://pegadasdorock.blogspot.com/2024/08/resenha-loss-human-factor.html?m=1" target="_blank" rel="noopener">
-                <span class="link-title">Resenha — Loss — Human Factor</span>
+                <span class="link-title" data-i18n="link_nat_7">Resenha — Loss — Human Factor</span>
                 <span class="link-source">pegadasdorock.blogspot.com</span>
               </a>
             </li>
             <li>
               <a href="https://roadiecrew.com/hard-rock-protagoniza-novo-single-da-loss-sobre-aceitacao-e-resiliencia/" target="_blank" rel="noopener">
-                <span class="link-title">Hard rock protagoniza novo single da Loss sobre aceitação e resiliência</span>
+                <span class="link-title" data-i18n="link_nat_8">Hard rock protagoniza novo single da Loss sobre aceitação e resiliência</span>
                 <span class="link-source">roadiecrew.com</span>
               </a>
             </li>
           </ul>
         </div>
         <div class="midia-col">
-          <h3>Mídia internacional</h3>
+          <h3 data-i18n="midia_internacional_h3">Mídia internacional</h3>
           <ul class="link-list">
             <li>
               <a href="https://theoldcoffinspirit.com/loss-storm-2022/" target="_blank" rel="noopener">
-                <span class="link-title">Resenha do álbum "Storm" (2022)</span>
+                <span class="link-title" data-i18n="link_int_1">Resenha do álbum "Storm" (2022)</span>
                 <span class="link-source">theoldcoffinspirit.com</span>
               </a>
             </li>
             <li>
               <a href="https://outlawsofthesun.blogspot.com/2024/08/human-factor-loss-album-review.html" target="_blank" rel="noopener">
-                <span class="link-title">Resenha do álbum "Human Factor" (2024)</span>
+                <span class="link-title" data-i18n="link_int_2">Resenha do álbum "Human Factor" (2024)</span>
                 <span class="link-source">outlawsofthesun.blogspot.com</span>
               </a>
             </li>
@@ -221,7 +225,7 @@ O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Ad
             </li>
             <li>
               <a href="https://wp.radioshiga.com/2022/01/banda-mineira-loss-realizara-turne-pela-europa-em-2022/" target="_blank" rel="noopener">
-                <span class="link-title">Banda mineira Loss realizará turnê pela Europa em 2022</span>
+                <span class="link-title" data-i18n="link_int_5">Banda mineira Loss realizará turnê pela Europa em 2022</span>
                 <span class="link-source">radioshiga.com</span>
               </a>
             </li>
@@ -234,17 +238,17 @@ O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Ad
   <!-- ESTRADA / FOTOS -->
   <section class="section estrada" id="fotos">
     <div class="wrap">
-      <span class="eyebrow">Na estrada</span>
-      <h2>Brasil, Europa, uma cidade de cada vez.</h2>
+      <span class="eyebrow" data-i18n="estrada_eyebrow">Na estrada</span>
+      <h2 data-i18n="estrada_h2">Brasil, Europa, uma cidade de cada vez.</h2>
     </div>
     <div class="estrada-strip estrada-strip--single">
       <figure>
-        <img src="images/foto-sofa-holanda.jpg" alt="A banda Loss ao lado de um sofá vermelho encontrado numa calçada na Holanda" loading="lazy">
-        <figcaption>Holanda</figcaption>
+        <img src="images/foto-sofa-holanda.jpg" alt="A banda Loss ao lado de um sofá vermelho encontrado numa calçada na Holanda" loading="lazy" data-i18n-alt="estrada_photo_alt">
+        <figcaption data-i18n="estrada_figcaption">Holanda</figcaption>
       </figure>
     </div>
     <div class="wrap estrada-cta">
-      <a href="galeria.html" class="btn btn-primary">Ver galeria completa de fotos</a>
+      <a href="galeria.html" class="btn btn-primary" data-i18n="estrada_cta_btn">Ver galeria completa da turnê</a>
     </div>
   <div class="video-container">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/JfxEi8qnJWQ?si=ATL8EQDXcjtNqgWi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -256,12 +260,12 @@ O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Ad
   <section class="section jogo" id="jogo">
     <div class="wrap jogo-grid">
       <div>
-        <span class="eyebrow">Jogo</span>
+        <span class="eyebrow" data-i18n="jogo_eyebrow">Jogo</span>
         <h2>L.O.S.S — The Human Factor Tour Game</h2>
-        <p>Um beat 'em up 2D em que Robustus, um ciborgue construído a partir das próprias músicas da banda, enfrenta diversos inimigos antimusicais para ajudar a banda, começando por Belo Horizonte e passando por cidades da Europa aonde a Loss tocou. Feito em HTML5 Canvas, roda direto no navegador — sem instalar nada.</p>
-        <a href="game/index.html" class="btn btn-primary">Jogar agora</a>
+        <p data-i18n="jogo_p">Um beat 'em up 2D em que Robustus, um ciborgue construído a partir das próprias músicas da banda, enfrenta diversos inimigos antimusicais para ajudar a banda, começando por Belo Horizonte e passando por cidades da Europa aonde a Loss tocou. Feito em HTML5 Canvas, roda direto no navegador — sem instalar nada.</p>
+        <a href="game/index.html" class="btn btn-primary" data-i18n="jogo_btn">Jogar agora</a>
       </div>
-      <img src="images/snap game.jpg" alt="Cena do jogo L.O.S.S — The Human Factor Tour, com Robustus na galeria de memorabília heavy metal" class="jogo-photo">
+      <img src="images/snap game.jpg" alt="Cena do jogo L.O.S.S — The Human Factor Tour, com Robustus na galeria de memorabília heavy metal" class="jogo-photo" data-i18n-alt="jogo_photo_alt">
     </div>
   </section>
 
@@ -269,9 +273,9 @@ O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Ad
   <section class="section loja" id="loja">
     <div class="wrap loja-grid">
       <div>
-        <span class="eyebrow">Loja</span>
+        <span class="eyebrow" data-i18n="loja_eyebrow">Loja</span>
         <h2>Loss Merch Store</h2>
-        <p>Camisetas, vinis e itens do álbum "Live in London" , com a comodidade do Mercado Livre. Clique no logo ao lado !!!</p>
+        <p data-i18n="loja_p">Camisetas, vinis e itens do álbum "Live in London" , com a comodidade do Mercado Livre. Clique no logo ao lado !!!</p>
       </div>
       <a href="https://www.mercadolivre.com.br/pagina/tj8gq839#from=share_eshop" target="_blank" class="btn-loss-store">
         <!-- Referência da imagem. Certifique-se de que a imagem esteja na mesma pasta ou ajuste o caminho -->
@@ -285,27 +289,27 @@ O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Ad
   <section class="section contato" id="contato">
     <div class="wrap contato-grid">
       <div>
-        <span class="eyebrow">Contato</span>
-        <h2>Shows, imprensa e parcerias.</h2>
-        <p>Para agenda de shows, entrevistas e imprensa, escreva direto para a banda ou siga nas redes.</p>
+        <span class="eyebrow" data-i18n="contato_eyebrow">Contato</span>
+        <h2 data-i18n="contato_h2">Shows, imprensa e parcerias.</h2>
+        <p data-i18n="contato_p">Para agenda de shows, entrevistas e imprensa, escreva direto para a banda ou siga nas redes.</p>
         <ul class="contato-list">
           <li><a href="mailto:loss.band@yahoo.com">loss.band@yahoo.com</a></li>
           <li><a href="https://www.instagram.com/loss.band" target="_blank" rel="noopener">Instagram — @loss.band</a></li>
           <li><a href="https://www.facebook.com/loss.rockband" target="_blank" rel="noopener">Facebook — /loss.rockband</a></li>
-          <li><a href="https://linktr.ee/Lossband" target="_blank" rel="noopener">Linktree — todos os links</a></li>
+          <li><a href="https://linktr.ee/Lossband" target="_blank" rel="noopener" data-i18n="contato_list_linktree">Linktree — todos os links</a></li>
         </ul>
       </div>
       <form class="contato-form" id="contatoForm">
-        <label for="nome">Nome</label>
+        <label for="nome" data-i18n="contato_label_nome">Nome</label>
         <input type="text" id="nome" name="nome" required>
 
-        <label for="email">E-mail</label>
+        <label for="email" data-i18n="contato_label_email">E-mail</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="mensagem">Mensagem</label>
+        <label for="mensagem" data-i18n="contato_label_mensagem">Mensagem</label>
         <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
 
-        <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+        <button type="submit" class="btn btn-primary" data-i18n="contato_submit">Enviar mensagem</button>
         <p class="contato-note" id="contatoNote" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -316,7 +320,7 @@ O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Ad
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <img src="images/logo-loss.png" alt="Loss" class="footer-mark">
-    <p>&copy; <span id="year"></span> Loss. Stoner rock de Belo Horizonte, MG — Brasil.</p>
+    <p>&copy; <span id="year"></span> <span data-i18n="footer_copy">Loss. Stoner rock de Belo Horizonte, MG — Brasil.</span></p>
     <div class="footer-social">
       <a href="https://www.instagram.com/loss.band" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.facebook.com/loss.rockband" target="_blank" rel="noopener">Facebook</a>
@@ -325,6 +329,7 @@ O vocal pesado e o baixo marcante de Marcelo, somados à guitarra virtuosa de Ad
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
