@@ -48,10 +48,16 @@ document.addEventListener("DOMContentLoaded", function () {
       var mensagem = document.getElementById("mensagem").value.trim();
       if (!nome || !email || !mensagem) return;
 
-      var subject = encodeURIComponent("Contato pelo site — " + nome);
+      // texto varia conforme o idioma selecionado no momento do envio
+      var lang = (window.LOSS_LANG === "en") ? "en" : "pt";
+      var dict = (window.LOSS_I18N && window.LOSS_I18N[lang]) || {};
+      var subjectLabel = dict.form_subject_contact || "Contato pelo site";
+      var sendingNote = dict.form_note_sending || "Abrindo seu app de e-mail para confirmar o envio…";
+
+      var subject = encodeURIComponent(subjectLabel + " — " + nome);
       var body = encodeURIComponent(mensagem + "\n\n— " + nome + " (" + email + ")");
       window.location.href = "mailto:loss.band@yahoo.com?subject=" + subject + "&body=" + body;
-      contatoNote.textContent = "Abrindo seu app de e-mail para confirmar o envio…";
+      contatoNote.textContent = sendingNote;
       contatoForm.reset();
     });
   }
