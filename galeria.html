@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galeria de fotos — Loss</title>
-<meta name="description" content="Galeria de fotos da Loss na estrada — Brasil e turnês europeias, shows, bastidores e paisagens.">
+<title data-i18n="gal_title">Galeria de fotos — Loss</title>
+<meta name="description" content="Galeria de fotos da Loss na estrada — Brasil e turnês europeias, shows, bastidores e paisagens." data-i18n-content="gal_meta_description">
 <link rel="icon" href="images/logo-loss.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,19 +20,25 @@
     <a href="index.html#top" class="brand">
       <img src="images/logo-loss.png" alt="Loss" class="brand-mark">
     </a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu">
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu" data-i18n-aria-label="nav_toggle_aria">
       <span></span><span></span><span></span>
     </button>
     <nav class="primary-nav" id="primaryNav">
-      <a href="index.html#sobre">A banda</a>
-      <a href="index.html#discografia">Discografia</a>
-      <a href="index.html#midia">Na mídia</a>
-      <a href="index.html#fotos">Estrada</a>
-      <a href="index.html#jogo">Jogo</a>
-      <a href="index.html#loja">Loja</a>
-      <a href="index.html#contato">Contato</a>
+      <a href="index.html#sobre" data-i18n="nav_sobre">A banda</a>
+      <a href="index.html#discografia" data-i18n="nav_discografia">Discografia</a>
+      <a href="index.html#midia" data-i18n="nav_midia">Na mídia</a>
+      <a href="index.html#fotos" data-i18n="nav_fotos">Estrada</a>
+      <a href="index.html#jogo" data-i18n="nav_jogo">Jogo</a>
+      <a href="index.html#loja" data-i18n="nav_loja">Loja</a>
+      <a href="index.html#contato" data-i18n="nav_contato">Contato</a>
     </nav>
-    <a href="https://linktr.ee/Lossband" target="_blank" rel="noopener" class="nav-linktree">Linktree</a>
+    <div class="header-cta">
+      <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-btn is-active" data-lang="pt" aria-pressed="true">POR</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="https://linktr.ee/Lossband" target="_blank" rel="noopener" class="nav-linktree" data-i18n="nav_links">Links</a>
+    </div>
   </div>
 </header>
 
@@ -41,10 +47,10 @@
   <!-- GALERIA HERO -->
   <section class="section galeria-hero">
     <div class="wrap">
-      <a href="index.html#fotos" class="galeria-back">&larr; Voltar para o site</a>
-      <span class="eyebrow">Na estrada</span>
-      <h1>Galeria de fotos.</h1>
-      <p>Bastidores, palcos e cidades da turnê da Loss pelo Brasil e pela Europa. Clique numa foto para ver em tamanho maior.</p>
+      <a href="index.html#fotos" class="galeria-back" data-i18n="gal_back">&larr; Voltar para o site</a>
+      <span class="eyebrow" data-i18n="estrada_eyebrow">Na estrada</span>
+      <h1 data-i18n="gal_h1">Galeria de fotos.</h1>
+      <p data-i18n="gal_p">Bastidores, palcos e cidades da turnê da Loss pelo Brasil e pela Europa. Clique numa foto para ver em tamanho maior.</p>
     </div>
   </section>
 
@@ -54,78 +60,83 @@
       <div class="galeria-grid" id="galeriaGrid">
 
         <a href="#" class="galeria-item" data-index="0">
-          <img src="images/galeria/amsterda-canal.jpg" alt="Marcelo Loss, Adriano Avelar e Teddy Bronsk às margens de um canal em Amsterdã, Holanda" loading="lazy">
-          <span class="galeria-caption">Amsterdã, Holanda</span>
+          <img src="images/galeria/cartaz-turne-2025.jpg" alt="Cartaz da turnê europeia The Human Factor, com datas em Paris, Eernegem, Bree, Amsterdã, Oer-Erkenschwick, Londres e Dundalk" loading="lazy" data-i18n-alt="gal_alt_00">
+          <span class="galeria-caption" data-i18n="gal_cap_00">Cartaz da turnê europeia 2025</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="1">
-          <img src="images/galeria/loss-sofa-promo.jpg" alt="Logo da Loss sobre foto da banda ao lado do sofá vermelho encontrado na Holanda" loading="lazy">
-          <span class="galeria-caption">Holanda</span>
+          <img src="images/galeria/amsterda-canal.jpg" alt="Marcelo Loss, Adriano Avelar e Teddy Bronsk às margens de um canal em Amsterdã, Holanda" loading="lazy" data-i18n-alt="gal_alt_01">
+          <span class="galeria-caption" data-i18n="gal_cap_01">Amsterdã, Holanda</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="2">
-          <img src="images/galeria/studio-pub.jpg" alt="Loss se apresentando no telão do Studio Pub, com o público cantando junto" loading="lazy">
-          <span class="galeria-caption">Belém PA</span>
+          <img src="images/galeria/loss-sofa-promo.jpg" alt="Logo da Loss sobre foto da banda ao lado do sofá vermelho encontrado na Holanda" loading="lazy" data-i18n-alt="gal_alt_02">
+          <span class="galeria-caption" data-i18n="gal_cap_02">Holanda</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="3">
-          <img src="images/galeria/live-london-palco.jpg" alt="Marcelo Loss e Adriano Avelar no palco do show que deu origem ao álbum Live in London" loading="lazy">
-          <span class="galeria-caption">Belo Horizonte - Palácio das Artes</span>
+          <img src="images/galeria/studio-pub.jpg" alt="Loss se apresentando no telão do Studio Pub, com o público cantando junto" loading="lazy" data-i18n-alt="gal_alt_03">
+          <span class="galeria-caption" data-i18n="gal_cap_03">Studio Pub</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="4">
-          <img src="images/galeria/bateria-ao-vivo.jpg" alt="Teddy Bronsk tocando bateria ao vivo, com bandana rosa, em show de grande porte" loading="lazy">
-          <span class="galeria-caption">Belo Horizonte</span>
+          <img src="images/galeria/live-london-palco.jpg" alt="Marcelo Loss e Adriano Avelar no palco do show que deu origem ao álbum Live in London" loading="lazy" data-i18n-alt="gal_alt_04">
+          <span class="galeria-caption" data-i18n="gal_cap_04">Live in London</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="5">
-          <img src="images/galeria/bandeira-palco.jpg" alt="A banda e o público seguram no palco a bandeira com o brasão e o lema de Minas Gerais" loading="lazy">
-          <span class="galeria-caption">Belo Horizonte MG</span>
+          <img src="images/galeria/bateria-ao-vivo.jpg" alt="Teddy Bronsk tocando bateria ao vivo, com bandana rosa, em show de grande porte" loading="lazy" data-i18n-alt="gal_alt_05">
+          <span class="galeria-caption" data-i18n="gal_cap_05">Ao vivo</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="6">
-          <img src="images/galeria/show-colorido.jpg" alt="Adriano Avelar e Marcelo Loss em show com iluminação colorida" loading="lazy">
-          <span class="galeria-caption">Campinas SP</span>
+          <img src="images/galeria/bandeira-palco.jpg" alt="A banda e o público seguram no palco a bandeira com o brasão e o lema de Minas Gerais" loading="lazy" data-i18n-alt="gal_alt_06">
+          <span class="galeria-caption" data-i18n="gal_cap_06">Bandeira de Minas Gerais no palco</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="7">
-          <img src="images/galeria/banda-plateia.jpg" alt="Loss ao lado da plateia depois do show" loading="lazy">
-          <span class="galeria-caption">Contagem MG</span>
+          <img src="images/galeria/show-colorido.jpg" alt="Adriano Avelar e Marcelo Loss em show com iluminação colorida" loading="lazy" data-i18n-alt="gal_alt_07">
+          <span class="galeria-caption" data-i18n="gal_cap_07">Ao vivo</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="8">
-          <img src="images/galeria/irlanda-escadaria.jpg" alt="Marcelo Loss, Teddy Bronsk e Adriano Avelar sentados na escadaria de uma igreja na Irlanda" loading="lazy">
-          <span class="galeria-caption">Irlanda</span>
+          <img src="images/galeria/banda-plateia.jpg" alt="Loss ao lado da plateia depois do show" loading="lazy" data-i18n-alt="gal_alt_08">
+          <span class="galeria-caption" data-i18n="gal_cap_08">Depois do show</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="9">
-          <img src="images/galeria/cart-horses-fachada.jpg" alt="A banda em frente à fachada do Cart &amp; Horses, pub londrino onde o Iron Maiden se apresentou no início da carreira" loading="lazy">
-          <span class="galeria-caption">Cart &amp; Horses, Londres</span>
+          <img src="images/galeria/irlanda-escadaria.jpg" alt="Marcelo Loss, Teddy Bronsk e Adriano Avelar sentados na escadaria de uma igreja na Irlanda" loading="lazy" data-i18n-alt="gal_alt_09">
+          <span class="galeria-caption" data-i18n="gal_cap_09">Irlanda</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="10">
-          <img src="images/galeria/festival-noturno.jpg" alt="Loss se apresentando em festival ao ar livre, à noite" loading="lazy">
-          <span class="galeria-caption">Macapá PA</span>
+          <img src="images/galeria/cart-horses-fachada.jpg" alt="A banda em frente à fachada do Cart &amp; Horses, pub londrino onde o Iron Maiden se apresentou no início da carreira" loading="lazy" data-i18n-alt="gal_alt_10">
+          <span class="galeria-caption" data-i18n="gal_cap_10">Cart &amp; Horses, Londres</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="11">
-          <img src="images/galeria/paris-torre-eiffel.jpg" alt="Marcelo Loss, Adriano Avelar e Teddy Bronsk em frente à Torre Eiffel, em Paris" loading="lazy">
-          <span class="galeria-caption">Paris, França</span>
+          <img src="images/galeria/festival-noturno.jpg" alt="Loss se apresentando em festival ao ar livre, à noite" loading="lazy" data-i18n-alt="gal_alt_11">
+          <span class="galeria-caption" data-i18n="gal_cap_11">Festival</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="12">
-          <img src="images/galeria/plateia-headbang.jpg" alt="Público fazendo headbang durante apresentação da Loss" loading="lazy">
-          <span class="galeria-caption">Portel - Ilha de Marajó - PA</span>
+          <img src="images/galeria/paris-torre-eiffel.jpg" alt="Marcelo Loss, Adriano Avelar e Teddy Bronsk em frente à Torre Eiffel, em Paris" loading="lazy" data-i18n-alt="gal_alt_12">
+          <span class="galeria-caption" data-i18n="gal_cap_12">Paris, França</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="13">
-          <img src="images/galeria/show-vitral.jpg" alt="Adriano Avelar tocando guitarra em palco com vitrais coloridos ao fundo" loading="lazy">
-          <span class="galeria-caption">La Iglesia São Paulo SP</span>
+          <img src="images/galeria/plateia-headbang.jpg" alt="Público fazendo headbang durante apresentação da Loss" loading="lazy" data-i18n-alt="gal_alt_13">
+          <span class="galeria-caption" data-i18n="gal_cap_13">Plateia</span>
         </a>
 
         <a href="#" class="galeria-item" data-index="14">
-          <img src="images/galeria/banda-palco-festivo.jpg" alt="Loss posando no palco com o público ao fundo, em clima festivo" loading="lazy">
-          <span class="galeria-caption">La Iglesia São Paulo SP</span>
+          <img src="images/galeria/show-vitral.jpg" alt="Adriano Avelar tocando guitarra em palco com vitrais coloridos ao fundo" loading="lazy" data-i18n-alt="gal_alt_14">
+          <span class="galeria-caption" data-i18n="gal_cap_14">Ao vivo</span>
+        </a>
+
+        <a href="#" class="galeria-item" data-index="15">
+          <img src="images/galeria/banda-palco-festivo.jpg" alt="Loss posando no palco com o público ao fundo, em clima festivo" loading="lazy" data-i18n-alt="gal_alt_15">
+          <span class="galeria-caption" data-i18n="gal_cap_15">No palco</span>
         </a>
 
       </div>
@@ -148,7 +159,7 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <img src="images/logo-loss.png" alt="Loss" class="footer-mark">
-    <p>&copy; <span id="year"></span> Loss. Stoner rock de Belo Horizonte, MG — Brasil.</p>
+    <p>&copy; <span id="year"></span> <span data-i18n="footer_copy">Loss. Stoner rock de Belo Horizonte, MG — Brasil.</span></p>
     <div class="footer-social">
       <a href="https://www.instagram.com/loss.band" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.facebook.com/loss.rockband" target="_blank" rel="noopener">Facebook</a>
@@ -157,6 +168,7 @@
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 <script src="js/galeria.js"></script>
 </body>
