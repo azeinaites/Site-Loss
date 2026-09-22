@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>L.O.S.S - The Human Factor Tour</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <script>
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = 'style.css?v=' + Date.now();
+        document.head.appendChild(l);
+    </script>
 </head>
 <body>
     <div id="viewport-wrap">
@@ -78,6 +83,10 @@
             <p>Gire seu aparelho para jogar em modo paisagem</p>
         </div>
     </div>
-    <script src="game.js"></script>
+    <script>
+        var s = document.createElement('script');
+        s.src = 'game.js?v=' + Date.now();
+        document.body.appendChild(s);
+    </script>
 </body>
 </html>
