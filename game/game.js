@@ -151,6 +151,8 @@ function playVictorySfx(){ [523,659,784,1047].forEach((f,i)=>sfxOsc('triangle', 
 function playGameOverSfx(){ sfxOsc('sawtooth', 220, 55, 0.9, 0.35); }
 // "canto" do Pierre Autotune ao disparar a onda sonora — bem diferente do tic-tac do metrônomo
 function playSingSfx(){ sfxOsc('sawtooth', 500, 1400, 0.3, 0.3); sfxOsc('sine', 700, 1800, 0.35, 0.25, 0.05); }
+// batida de bumbo do Von Drum Machine — grave e seco, com um "estouro" de ruído por cima
+function playDrumHitSfx(){ sfxOsc('sine', 150, 40, 0.22, 0.55); sfxNoise(0.12, 0.25, 300); }
 
 // Tic-tac do metrônomo vilão (fase 1) — toca em loop próprio, independente da trilha
 let metronomeIntervalId = null;
@@ -208,6 +210,15 @@ const sadAztVideo = loadVideo('assets/sad_azt.webm');
 const happyAztVideo = loadVideo('assets/happy_azt.webm');
 trySafePlay(sadAztVideo);
 
+// --- Fase 3: The Cave (Amsterdã) ---
+const caveImage = loadImg('assets/cave_bg.jpg');
+const vonSheet = loadImg('assets/von_drum_machine.png');
+const pBassImg = loadImg('assets/p_bass.png');
+let pBassAspect = 1154 / 537;
+const sadMarceloVideo = loadVideo('assets/sad_marcelo.webm');
+const happyMarceloVideo = loadVideo('assets/happy_marcelo.webm');
+trySafePlay(sadMarceloVideo);
+
 // --- Inimigo comum (compartilhado entre fases) ---
 const quantSheet = loadImg('assets/quantizado.png');
 const QUANT_FRAME_W = 125, QUANT_FRAME_H = 166;
@@ -242,6 +253,17 @@ pierreSheet.onload = () => {
     pierreConfig.frameH = pierreSheet.height;
 };
 const PIERRE_FRAME = { IDLE: [0, 1, 2], ATTACK: 3, HIT: 4, DEFEATED: 5 };
+
+// Von Drum Machine (fase 3): mesmo esquema de 6 frames numa linha (grade uniforme 208x208)
+const vonConfig = {
+    cols: 6, rows: 1, frameW: 0, frameH: 0,
+    currentFrameX: 0, animTimer: 0, animSpeed: 10
+};
+vonSheet.onload = () => {
+    vonConfig.frameW = vonSheet.width / vonConfig.cols;
+    vonConfig.frameH = vonSheet.height;
+};
+const VON_FRAME = { IDLE: [0, 1, 2], ATTACK: 3, HIT: 4, DEFEATED: 5 };
 
 /* ======================================================================
    DEFINIÇÃO DAS FASES
@@ -350,6 +372,58 @@ const PHASES = [
                 { x: 6300, y: 484, w: 56, h: 76, speed: 3, dir: 1, limitLeft: 5900, limitRight: 6650 }
             ],
             boss: { x: 7150, y: 370, w: 135, h: 190, health: 260, maxHealth: 260, speed: 1.6, dir: -1 }
+        }
+    },
+    {
+        id: 3,
+        name: 'The Cave',
+        storyTitle: 'FASE 3: THE CAVE (AMSTERDÃ)',
+        storyHtml: `O rastro da Música Natural leva Robustus a Amsterdã, até debaixo da Prinsengracht.
+            <br><br>
+            No porão do <span class="highlight-robus">THE CAVE</span> — a casa de rock mais barulhenta da cidade
+            desde 1995, onde as bandas tocam rente ao chão, sem palco — Marcelo procura seu P Bass, roubado antes do show.
+            <br><br>
+            Sem o baixo de Marcelo sustentando o groove, Robustus terá que enfrentar sozinho quem tomou o ritmo da casa...
+            <br><br>
+            <span class="highlight-boss">VON DRUM MACHINE</span> quer que todo mundo dance no seu compasso mecânico!`,
+        storyPrompt: 'Pressione [ESPAÇO] ou toque para Entrar na Caverna',
+        musicSrc: 'assets/The_Storm.mp3',
+        trackName: 'The Storm',
+        tickSfx: false,
+        bgMode: 'single', bgSingle: caveImage,
+        levelWidth: 7600, stageWorldStart: 6850, bossTriggerX: 6750,
+        seams: [],
+        charSad: sadMarceloVideo, charHappy: happyMarceloVideo,
+        charWorld: { x: 7180, y: 560, h: 155, aspect: 232 / 416 },
+        bossName: 'VON DRUM MACHINE', bossType: 'shockwave',
+        victoryTitle: 'MARCELO TOCA DE NOVO!',
+        specialItem: {
+            type: 'baixo', name: 'P Bass', img: pBassImg, aspect: pBassAspect,
+            bonusAmmo: 50, bonusScore: 500, x: 3800, y: 420
+        },
+        levelTemplate: {
+            platforms: [
+                { x: 0, y: 560, w: 7600, h: 40 },
+                { x: 3750, y: 462, w: 120, h: 98, isCase: true }
+            ],
+            collectibles: [
+                { x: 750, y: 410, type: "valvula", name: "Genever", collected: false },
+                { x: 1550, y: 410, type: "palheta", name: "Set List", collected: false },
+                { x: 2400, y: 410, type: "valvula", name: "Genever", collected: false },
+                { x: 3150, y: 410, type: "palheta", name: "Set List", collected: false },
+                { x: 3800, y: 420, type: "baixo", name: "P Bass", collected: false, hidden: true },
+                { x: 4600, y: 410, type: "valvula", name: "Genever", collected: false },
+                { x: 5400, y: 410, type: "palheta", name: "Set List", collected: false },
+                { x: 6300, y: 410, type: "valvula", name: "Genever", collected: false }
+            ],
+            enemies: [
+                { x: 800, y: 484, w: 56, h: 76, speed: 2, dir: 1, limitLeft: 600, limitRight: 1200 },
+                { x: 1850, y: 484, w: 56, h: 76, speed: 2.3, dir: 1, limitLeft: 1400, limitRight: 2250 },
+                { x: 2950, y: 484, w: 56, h: 76, speed: 2, dir: 1, limitLeft: 2500, limitRight: 3450 },
+                { x: 4900, y: 484, w: 56, h: 76, speed: 2.5, dir: 1, limitLeft: 4400, limitRight: 5300 },
+                { x: 6100, y: 484, w: 56, h: 76, speed: 2.8, dir: 1, limitLeft: 5700, limitRight: 6600 }
+            ],
+            boss: { x: 7130, y: 390, w: 170, h: 170, health: 280, maxHealth: 280, speed: 2, dir: -1 }
         }
     }
 ];
@@ -501,6 +575,7 @@ const player = {
 
 let projectiles = [];       // tiros do jogador
 let bossProjectiles = [];   // ataques à distância do chefão (fase 2)
+let shockwaves = [];        // ondas de choque no chão do chefão (fase 3)
 
 function shootProjectile() {
     if (player.ammo > 0) {
@@ -524,7 +599,7 @@ function cloneLevelTemplate(tpl) {
         platforms: tpl.platforms.map(p => ({ ...p })),
         collectibles: tpl.collectibles.map(c => ({ ...c })),
         enemies: tpl.enemies.map(e => ({ ...e, active: true, state: 'idle', hitTimer: 0, chasing: false })),
-        boss: { ...tpl.boss, active: true, mode: 'patrol', modeTimer: 0, singTimer: 90 }
+        boss: { ...tpl.boss, active: true, mode: 'patrol', modeTimer: 0, singTimer: 90, drumTimer: 100 }
     };
 }
 
@@ -576,6 +651,7 @@ function beginPhase(index) {
     cameraX = 0;
     projectiles = [];
     bossProjectiles = [];
+    shockwaves = [];
     updateHUD();
 
     playGameMusic();
@@ -618,7 +694,7 @@ function animateBoss() {
             metronomoConfig.currentFrameX = (metronomoConfig.currentFrameX + 1) % 6;
             metronomoConfig.currentFrameY = boss.health < boss.maxHealth * 0.5 ? 2 : 0;
         }
-    } else {
+    } else if (phase.bossType === 'ranged') {
         pierreConfig.animTimer++;
         if (pierreConfig.animTimer >= pierreConfig.animSpeed) {
             pierreConfig.animTimer = 0;
@@ -631,6 +707,21 @@ function animateBoss() {
             } else {
                 const idle = PIERRE_FRAME.IDLE;
                 pierreConfig.currentFrameX = idle[Math.floor(frameCount / 24) % idle.length];
+            }
+        }
+    } else if (phase.bossType === 'shockwave') {
+        vonConfig.animTimer++;
+        if (vonConfig.animTimer >= vonConfig.animSpeed) {
+            vonConfig.animTimer = 0;
+            if (!boss.active) {
+                vonConfig.currentFrameX = VON_FRAME.DEFEATED;
+            } else if (boss.mode === 'drumming') {
+                vonConfig.currentFrameX = VON_FRAME.ATTACK;
+            } else if (boss.hitFlash > 0) {
+                vonConfig.currentFrameX = VON_FRAME.HIT;
+            } else {
+                const idle = VON_FRAME.IDLE;
+                vonConfig.currentFrameX = idle[Math.floor(frameCount / 24) % idle.length];
             }
         }
     }
@@ -772,6 +863,22 @@ function update() {
     });
     bossProjectiles = bossProjectiles.filter(bp => bp.active);
 
+    // ondas de choque no chão do chefão (fase 3 / bossType 'shockwave') — dá pra pular por cima
+    shockwaves.forEach(sw => {
+        if (!sw.active) return;
+        const prevRadius = sw.radius;
+        sw.radius += sw.speed;
+        const distToPlayer = Math.abs((player.x + player.width / 2) - sw.x);
+        if (!sw.hit && distToPlayer > prevRadius && distToPlayer <= sw.radius) {
+            sw.hit = true;
+            if (player.grounded && player.invulnerableTimer === 0) {
+                player.health -= 18; player.invulnerableTimer = 45; playPlayerHurtSfx();
+            }
+        }
+        if (sw.radius > sw.maxRadius) sw.active = false;
+    });
+    shockwaves = shockwaves.filter(sw => sw.active);
+
     let pCenterX = player.x + player.width / 2;
     let pCenterY = player.y + player.height / 2;
 
@@ -834,8 +941,10 @@ function update() {
     if (bossFightActive && boss.active) {
         if (phase.bossType === 'melee') {
             updateMeleeBoss(boss, pCenterX, pCenterY);
-        } else {
+        } else if (phase.bossType === 'ranged') {
             updateRangedBoss(boss, pCenterX, pCenterY);
+        } else if (phase.bossType === 'shockwave') {
+            updateShockwaveBoss(boss, pCenterX, pCenterY);
         }
 
         if (player.state === PLAYER_STATES.ATTACK_SONIC && Math.hypot(pCenterX - (boss.x + boss.w / 2), pCenterY - (boss.y + boss.h / 2)) < player.attackRadius) {
@@ -845,7 +954,7 @@ function update() {
         }
 
         if (player.invulnerableTimer === 0 && rectIntersect(player.x, player.y, player.width, player.height, boss.x, boss.y, boss.w, boss.h)) {
-            const dmg = phase.bossType === 'melee' ? 30 : 20;
+            const dmg = phase.bossType === 'melee' ? 30 : (phase.bossType === 'shockwave' ? 25 : 20);
             player.health -= dmg; player.invulnerableTimer = 60; player.dx = -15; player.dy = -5;
             playPlayerHurtSfx();
         }
@@ -918,6 +1027,35 @@ function updateRangedBoss(boss, pCenterX, pCenterY) {
         if (boss.modeTimer > 42) {
             boss.mode = 'patrol'; boss.modeTimer = 0;
             boss.singTimer = enraged ? 75 : 130;
+        }
+    }
+}
+
+// --- IA do chefão de ondas de choque (Von Drum Machine, fase 3) ---
+// Ele bate na bateria e dispara uma onda que se expande pelo chão nos dois sentidos —
+// dá pra evitar pulando bem na hora em que ela passa por baixo do jogador.
+function updateShockwaveBoss(boss, pCenterX, pCenterY) {
+    const enraged = boss.health < boss.maxHealth * 0.5;
+    const patrolMin = 6980, patrolMax = 7320;
+
+    if (boss.mode === 'patrol') {
+        boss.x += boss.speed * boss.dir;
+        if (boss.x < patrolMin) boss.dir = 1;
+        if (boss.x > patrolMax) boss.dir = -1;
+        boss.drumTimer--;
+        if (boss.drumTimer <= 0) { boss.mode = 'drumming'; boss.modeTimer = 0; }
+    } else if (boss.mode === 'drumming') {
+        boss.modeTimer++;
+        if (boss.modeTimer === 16) {
+            shockwaves.push({
+                x: boss.x + boss.w / 2, y: boss.y + boss.h,
+                radius: 0, maxRadius: 420, speed: enraged ? 9 : 6.5, active: true, hit: false
+            });
+            playDrumHitSfx();
+        }
+        if (boss.modeTimer > 38) {
+            boss.mode = 'patrol'; boss.modeTimer = 0;
+            boss.drumTimer = enraged ? 70 : 120;
         }
     }
 }
@@ -1186,10 +1324,32 @@ function drawBossProjectiles() {
     });
 }
 
+// Ondas de choque do Von Drum Machine — anéis de energia se expandindo pelo chão
+function drawShockwaves() {
+    shockwaves.forEach(sw => {
+        const sx = sw.x - cameraX;
+        if (sx < -sw.radius - 40 || sx > canvas.width + sw.radius + 40) return;
+        const lifeRatio = sw.radius / sw.maxRadius;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, 1 - lifeRatio) * 0.8;
+        ctx.strokeStyle = '#ffcc33';
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.ellipse(sx, sw.y, sw.radius, 12, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.ellipse(sx, sw.y, sw.radius * 0.9, 9, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+    });
+}
+
 function drawBoss() {
     const phase = PHASES[currentPhaseIndex];
     const boss = currentLevel.boss;
-    if (!boss.active && phase.bossType !== 'ranged') return; // metrônomo some ao morrer (efeito já coberto pela vitória)
+    if (!boss.active && phase.bossType === 'melee') return; // metrônomo some ao morrer (efeito já coberto pela vitória)
 
     if (phase.bossType === 'melee') {
         drawBossTelegraph(boss);
@@ -1206,7 +1366,7 @@ function drawBoss() {
             ctx.fillStyle = "rgba(231, 76, 60, 0.5)";
             ctx.fillRect(boss.x - cameraX, boss.y, boss.w, boss.h);
         }
-    } else {
+    } else if (phase.bossType === 'ranged') {
         if (!boss.active) return; // Pierre derrotado: sem sprite após a queda (vitória assume a cena)
         if (pierreConfig.frameW > 0) {
             ctx.save();
@@ -1216,6 +1376,21 @@ function drawBoss() {
             ctx.drawImage(pierreSheet,
                 pierreConfig.currentFrameX * pierreConfig.frameW, 0,
                 pierreConfig.frameW, pierreConfig.frameH, 0, 0, boss.w, boss.h);
+            ctx.restore();
+        } else {
+            ctx.fillStyle = "rgba(231, 76, 60, 0.5)";
+            ctx.fillRect(boss.x - cameraX, boss.y, boss.w, boss.h);
+        }
+    } else if (phase.bossType === 'shockwave') {
+        if (!boss.active) return; // Von derrotado: some, vitória assume a cena
+        if (vonConfig.frameW > 0) {
+            ctx.save();
+            let bossFacing = (boss.dir === 1) ? 1 : -1;
+            ctx.translate(boss.x - cameraX + (bossFacing === -1 ? boss.w : 0), boss.y);
+            ctx.scale(bossFacing, 1);
+            ctx.drawImage(vonSheet,
+                vonConfig.currentFrameX * vonConfig.frameW, 0,
+                vonConfig.frameW, vonConfig.frameH, 0, 0, boss.w, boss.h);
             ctx.restore();
         } else {
             ctx.fillStyle = "rgba(231, 76, 60, 0.5)";
@@ -1287,6 +1462,7 @@ function draw() {
     ctx.fillStyle = "#00ffff";
     projectiles.forEach(p => { if (p.active) ctx.fillRect(p.x - cameraX, p.y, p.w, p.h); });
     drawBossProjectiles();
+    drawShockwaves();
 
     drawBoss();
 
